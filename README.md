@@ -26,20 +26,25 @@ Conteinerização: uso de Docker para empacotar o pipeline.
 
 #### Bronze (Ingestão)
 Fonte: Arquivo movies.csv na pasta dados/.
+
 Processamento: Cópia direta dos dados brutos.
 
 Destino: datalake/bronze/ (formato CSV).
 
 #### Silver (Limpeza e Transformação)
 Processamento:
+
 Extração de id, filme, ano com expressões regulares.
+
 Criação de DataFrame com Pandas.
 
 Destino: datalake/silver/ (formato Parquet).
 
 #### Gold (Enriquecimento e Agregação)
 Processamento:
+
 Categorização dos filmes com base no título:
+
 Documentário, Animação, Sequel/Série, Filme.
 
 Destino: datalake/gold/movies_by_category/ (Parquet por categoria).
@@ -47,17 +52,24 @@ Destino: datalake/gold/movies_by_category/ (Parquet por categoria).
 
 #### Persistência (Banco de Dados Relacional)
 Banco: SQLite (movies.db)
+
 Processamento: Cada categoria é armazenada em uma tabela separada.
 
 ### Tecnologias Utilizadas
+
 Linguagem: Python 3.12
+
 Processamento: Pandas
+
 Armazenamento: Parquet
+
 Banco de Dados: SQLite
+
 Conteinerização: Docker
 
 ## Estrutura do Projeto
 
+```
 ├── dados/                         # Dados brutos (entrada)
 │   └── movies.csv
 ├── datalake/
@@ -75,7 +87,7 @@ Conteinerização: Docker
 ├── run_pipeline.py                # Orquestrador do pipeline
 ├── Dockerfile                     # Docker build
 └── requirements.txt               # Dependências Python
-
+```
 
 ## Como executar o pipeline
 
@@ -83,6 +95,7 @@ Conteinerização: Docker
 ### Pré-requisitos
 
 Docker instalado e em execução.
+
 Python 3.12
 
 ### Construir a Imagem Docker
