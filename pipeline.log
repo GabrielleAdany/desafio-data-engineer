@@ -1,0 +1,214 @@
+2025-06-13 15:02:45,623 - ERROR - Erro ao importar módulos das camadas: cannot import name 'run_gold_layer' from 'gold' (/Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/src/gold.py)
+2025-06-13 15:02:45,624 - ERROR - Verifique se os arquivos (bronze.py, silver.py, gold.py, persistence_layer.py) estão na pasta 'src/' e se contêm as funções esperadas (e.g., copy_raw_to_bronze, run_silver_layer, etc.).
+2025-06-13 15:11:22,934 - ERROR - Erro ao importar módulos das camadas: No module named 'persistence_layer'
+2025-06-13 15:11:22,934 - ERROR - Verifique se os arquivos (bronze.py, silver.py, gold.py, persistence_layer.py) estão na pasta 'src/' e se contêm as funções esperadas (e.g., run_bronze_layer, run_silver_layer, etc.).
+2025-06-13 15:11:36,404 - INFO - Iniciando o Pipeline de Dados...
+2025-06-13 15:11:36,404 - INFO - --- EXECUTANDO CAMADA BRONZE (INGESTÃO) ---
+2025-06-13 15:11:36,405 - INFO - Caminho RAW_DIR que o script está usando: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/dados
+2025-06-13 15:11:36,405 - INFO - Caminho BRONZE_DIR que o script está usando: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/bronze
+2025-06-13 15:11:36,406 - INFO - Arquivo 'movies.csv' copiado para '/Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/bronze/movies.csv'
+2025-06-13 15:11:36,406 - INFO - Camada Bronze concluída com sucesso.
+2025-06-13 15:11:36,406 - INFO - --- EXECUTANDO CAMADA SILVER (LIMPEZA E TRANSFORMAÇÃO) ---
+2025-06-13 15:11:36,406 - INFO - Iniciando a Camada Silver: Limpeza e Transformação...
+2025-06-13 15:11:36,406 - INFO - Dados brutos lidos de: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/bronze/movies.csv
+2025-06-13 15:11:36,413 - INFO - DataFrame criado na camada Silver:
+2025-06-13 15:11:36,416 - INFO - Primeiras 5 linhas:
+   id                         filme   ano
+0   1               Dinosaur Planet  2003
+1   2    Isle of Man TT 2004 Review  2004
+2   3                     Character  1997
+3   4  Paula Abdul's Get Up & Dance  1994
+4   5      The Rise and Fall of ECW  2004
+2025-06-13 15:11:36,416 - INFO - Shape: (4499, 3)
+2025-06-13 15:11:36,416 - INFO - Tipos de dados:
+id        int64
+filme    object
+ano       int64
+2025-06-13 15:11:36,446 - INFO - Arquivo salvo com sucesso em: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/silver/movies_processed.parquet
+2025-06-13 15:11:36,446 - INFO - Registros salvos na camada Silver: 4499
+2025-06-13 15:11:36,446 - INFO - Camada Silver concluída.
+2025-06-13 15:11:36,447 - INFO - Camada Silver concluída com sucesso.
+2025-06-13 15:11:36,447 - INFO - --- EXECUTANDO CAMADA GOLD (MÉTRICAS E ENRIQUECIMENTO) ---
+2025-06-13 15:11:36,447 - INFO - Iniciando a Camada Gold: Métricas e Enriquecimento...
+2025-06-13 15:11:36,486 - INFO - Dados carregados da camada Silver: 4499 filmes.
+2025-06-13 15:11:36,487 - INFO - Período dos dados: 1915 - 2005
+2025-06-13 15:11:36,487 - INFO - Iniciando categorização dos filmes...
+2025-06-13 15:11:36,513 - INFO - Categorização concluída.
+2025-06-13 15:11:36,513 - INFO - Salvando DataFrames categorizados em: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/gold
+2025-06-13 15:11:36,518 - INFO - Arquivo salvo: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/gold/filme.parquet (3856 registros)
+2025-06-13 15:11:36,519 - INFO - Arquivo salvo: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/gold/documentário.parquet (164 registros)
+2025-06-13 15:11:36,521 - INFO - Arquivo salvo: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/gold/animação.parquet (185 registros)
+2025-06-13 15:11:36,522 - INFO - Arquivo salvo: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/gold/sequel_série.parquet (294 registros)
+2025-06-13 15:11:36,522 - INFO - Camada Gold concluída.
+2025-06-13 15:11:36,522 - INFO - Camada Gold concluída com sucesso.
+2025-06-13 15:11:36,522 - INFO - --- EXECUTANDO CAMADA DE PERSISTÊNCIA (GOLD -> DB) ---
+2025-06-13 15:11:36,538 - INFO - Camada de Persistência concluída com sucesso. Dados salvos no banco de dados.
+2025-06-13 15:11:36,538 - INFO - Pipeline de Dados concluído com sucesso!
+2025-06-13 15:12:09,396 - INFO - Iniciando o Pipeline de Dados...
+2025-06-13 15:12:09,396 - INFO - --- EXECUTANDO CAMADA BRONZE (INGESTÃO) ---
+2025-06-13 15:12:09,396 - INFO - Caminho RAW_DIR que o script está usando: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/dados
+2025-06-13 15:12:09,396 - INFO - Caminho BRONZE_DIR que o script está usando: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/bronze
+2025-06-13 15:12:09,397 - INFO - Arquivo 'movies.csv' copiado para '/Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/bronze/movies.csv'
+2025-06-13 15:12:09,397 - INFO - Camada Bronze concluída com sucesso.
+2025-06-13 15:12:09,397 - INFO - --- EXECUTANDO CAMADA SILVER (LIMPEZA E TRANSFORMAÇÃO) ---
+2025-06-13 15:12:09,397 - INFO - Iniciando a Camada Silver: Limpeza e Transformação...
+2025-06-13 15:12:09,397 - INFO - Dados brutos lidos de: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/bronze/movies.csv
+2025-06-13 15:12:09,403 - INFO - DataFrame criado na camada Silver:
+2025-06-13 15:12:09,405 - INFO - Primeiras 5 linhas:
+   id                         filme   ano
+0   1               Dinosaur Planet  2003
+1   2    Isle of Man TT 2004 Review  2004
+2   3                     Character  1997
+3   4  Paula Abdul's Get Up & Dance  1994
+4   5      The Rise and Fall of ECW  2004
+2025-06-13 15:12:09,405 - INFO - Shape: (4499, 3)
+2025-06-13 15:12:09,405 - INFO - Tipos de dados:
+id        int64
+filme    object
+ano       int64
+2025-06-13 15:12:09,439 - INFO - Arquivo salvo com sucesso em: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/silver/movies_processed.parquet
+2025-06-13 15:12:09,439 - INFO - Registros salvos na camada Silver: 4499
+2025-06-13 15:12:09,439 - INFO - Camada Silver concluída.
+2025-06-13 15:12:09,439 - INFO - Camada Silver concluída com sucesso.
+2025-06-13 15:12:09,439 - INFO - --- EXECUTANDO CAMADA GOLD (MÉTRICAS E ENRIQUECIMENTO) ---
+2025-06-13 15:12:09,439 - INFO - Iniciando a Camada Gold: Métricas e Enriquecimento...
+2025-06-13 15:12:09,478 - INFO - Dados carregados da camada Silver: 4499 filmes.
+2025-06-13 15:12:09,478 - INFO - Período dos dados: 1915 - 2005
+2025-06-13 15:12:09,478 - INFO - Iniciando categorização dos filmes...
+2025-06-13 15:12:09,504 - INFO - Categorização concluída.
+2025-06-13 15:12:09,504 - INFO - Salvando DataFrames categorizados em: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/gold
+2025-06-13 15:12:09,508 - INFO - Arquivo salvo: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/gold/filme.parquet (3856 registros)
+2025-06-13 15:12:09,510 - INFO - Arquivo salvo: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/gold/documentário.parquet (164 registros)
+2025-06-13 15:12:09,511 - INFO - Arquivo salvo: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/gold/animação.parquet (185 registros)
+2025-06-13 15:12:09,512 - INFO - Arquivo salvo: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/gold/sequel_série.parquet (294 registros)
+2025-06-13 15:12:09,512 - INFO - Camada Gold concluída.
+2025-06-13 15:12:09,512 - INFO - Camada Gold concluída com sucesso.
+2025-06-13 15:12:09,512 - INFO - --- EXECUTANDO CAMADA DE PERSISTÊNCIA (GOLD -> DB) ---
+2025-06-13 15:12:09,525 - INFO - Camada de Persistência concluída com sucesso. Dados salvos no banco de dados.
+2025-06-13 15:12:09,525 - INFO - Pipeline de Dados concluído com sucesso!
+2025-06-13 15:14:05,313 - INFO - Iniciando o Pipeline de Dados...
+2025-06-13 15:14:05,314 - INFO - --- EXECUTANDO CAMADA BRONZE (INGESTÃO) ---
+2025-06-13 15:14:05,314 - INFO - Caminho RAW_DIR que o script está usando: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/dados
+2025-06-13 15:14:05,314 - INFO - Caminho BRONZE_DIR que o script está usando: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/bronze
+2025-06-13 15:14:05,316 - INFO - Arquivo 'movies.csv' copiado para '/Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/bronze/movies.csv'
+2025-06-13 15:14:05,316 - INFO - Camada Bronze concluída com sucesso.
+2025-06-13 15:14:05,316 - INFO - --- EXECUTANDO CAMADA SILVER (LIMPEZA E TRANSFORMAÇÃO) ---
+2025-06-13 15:14:05,316 - INFO - Iniciando a Camada Silver: Limpeza e Transformação...
+2025-06-13 15:14:05,317 - INFO - Dados brutos lidos de: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/bronze/movies.csv
+2025-06-13 15:14:05,322 - INFO - DataFrame criado na camada Silver:
+2025-06-13 15:14:05,324 - INFO - Primeiras 5 linhas:
+   id                         filme   ano
+0   1               Dinosaur Planet  2003
+1   2    Isle of Man TT 2004 Review  2004
+2   3                     Character  1997
+3   4  Paula Abdul's Get Up & Dance  1994
+4   5      The Rise and Fall of ECW  2004
+2025-06-13 15:14:05,324 - INFO - Shape: (4499, 3)
+2025-06-13 15:14:05,324 - INFO - Tipos de dados:
+id        int64
+filme    object
+ano       int64
+2025-06-13 15:14:05,357 - INFO - Arquivo salvo com sucesso em: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/silver/movies_processed.parquet
+2025-06-13 15:14:05,357 - INFO - Registros salvos na camada Silver: 4499
+2025-06-13 15:14:05,357 - INFO - Camada Silver concluída.
+2025-06-13 15:14:05,357 - INFO - Camada Silver concluída com sucesso.
+2025-06-13 15:14:05,357 - INFO - --- EXECUTANDO CAMADA GOLD (MÉTRICAS E ENRIQUECIMENTO) ---
+2025-06-13 15:14:05,357 - INFO - Iniciando a Camada Gold: Métricas e Enriquecimento...
+2025-06-13 15:14:05,395 - INFO - Dados carregados da camada Silver: 4499 filmes.
+2025-06-13 15:14:05,395 - INFO - Período dos dados: 1915 - 2005
+2025-06-13 15:14:05,395 - INFO - Iniciando categorização dos filmes...
+2025-06-13 15:14:05,420 - INFO - Categorização concluída.
+2025-06-13 15:14:05,420 - INFO - Salvando DataFrames categorizados em: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/gold
+2025-06-13 15:14:05,425 - INFO - Arquivo salvo: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/gold/filme.parquet (3856 registros)
+2025-06-13 15:14:05,427 - INFO - Arquivo salvo: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/gold/documentário.parquet (164 registros)
+2025-06-13 15:14:05,428 - INFO - Arquivo salvo: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/gold/animação.parquet (185 registros)
+2025-06-13 15:14:05,429 - INFO - Arquivo salvo: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/gold/sequel_série.parquet (294 registros)
+2025-06-13 15:14:05,429 - INFO - Camada Gold concluída.
+2025-06-13 15:14:05,429 - INFO - Camada Gold concluída com sucesso.
+2025-06-13 15:14:05,429 - INFO - --- EXECUTANDO CAMADA DE PERSISTÊNCIA (GOLD -> DB) ---
+2025-06-13 15:14:05,443 - INFO - Camada de Persistência concluída com sucesso. Dados salvos no banco de dados.
+2025-06-13 15:14:05,443 - INFO - Pipeline de Dados concluído com sucesso!
+2025-06-13 15:35:09,010 - INFO - Iniciando o Pipeline de Dados...
+2025-06-13 15:35:09,010 - INFO - --- EXECUTANDO CAMADA BRONZE (INGESTÃO) ---
+2025-06-13 15:35:09,010 - INFO - Caminho RAW_DIR que o script está usando: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/dados
+2025-06-13 15:35:09,010 - INFO - Caminho BRONZE_DIR que o script está usando: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/bronze
+2025-06-13 15:35:09,011 - INFO - Arquivo 'movies.csv' copiado para '/Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/bronze/movies.csv'
+2025-06-13 15:35:09,011 - INFO - Camada Bronze concluída com sucesso.
+2025-06-13 15:35:09,011 - INFO - --- EXECUTANDO CAMADA SILVER (LIMPEZA E TRANSFORMAÇÃO) ---
+2025-06-13 15:35:09,011 - INFO - Iniciando a Camada Silver: Limpeza e Transformação...
+2025-06-13 15:35:09,012 - INFO - Dados brutos lidos de: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/bronze/movies.csv
+2025-06-13 15:35:09,016 - INFO - DataFrame criado na camada Silver:
+2025-06-13 15:35:09,018 - INFO - Primeiras 5 linhas:
+   id                         filme   ano
+0   1               Dinosaur Planet  2003
+1   2    Isle of Man TT 2004 Review  2004
+2   3                     Character  1997
+3   4  Paula Abdul's Get Up & Dance  1994
+4   5      The Rise and Fall of ECW  2004
+2025-06-13 15:35:09,018 - INFO - Shape: (4499, 3)
+2025-06-13 15:35:09,018 - INFO - Tipos de dados:
+id        int64
+filme    object
+ano       int64
+2025-06-13 15:35:09,063 - INFO - Arquivo salvo com sucesso em: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/silver/movies_processed.parquet
+2025-06-13 15:35:09,063 - INFO - Registros salvos na camada Silver: 4499
+2025-06-13 15:35:09,063 - INFO - Camada Silver concluída.
+2025-06-13 15:35:09,063 - INFO - Camada Silver concluída com sucesso.
+2025-06-13 15:35:09,063 - INFO - --- EXECUTANDO CAMADA GOLD (MÉTRICAS E ENRIQUECIMENTO) ---
+2025-06-13 15:35:09,063 - INFO - Iniciando a Camada Gold: Métricas e Enriquecimento...
+2025-06-13 15:35:09,122 - INFO - Dados carregados da camada Silver: 4499 filmes.
+2025-06-13 15:35:09,122 - INFO - Período dos dados: 1915 - 2005
+2025-06-13 15:35:09,122 - INFO - Iniciando categorização dos filmes...
+2025-06-13 15:35:09,149 - INFO - Categorização concluída.
+2025-06-13 15:35:09,149 - INFO - Salvando DataFrames categorizados em: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/gold
+2025-06-13 15:35:09,155 - INFO - Arquivo salvo: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/gold/filme.parquet (3856 registros)
+2025-06-13 15:35:09,157 - INFO - Arquivo salvo: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/gold/documentário.parquet (164 registros)
+2025-06-13 15:35:09,158 - INFO - Arquivo salvo: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/gold/animação.parquet (185 registros)
+2025-06-13 15:35:09,159 - INFO - Arquivo salvo: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/gold/sequel_série.parquet (294 registros)
+2025-06-13 15:35:09,159 - INFO - Camada Gold concluída.
+2025-06-13 15:35:09,159 - INFO - Camada Gold concluída com sucesso.
+2025-06-13 15:35:09,159 - INFO - --- EXECUTANDO CAMADA DE PERSISTÊNCIA (GOLD -> DB) ---
+2025-06-13 15:35:09,176 - INFO - Camada de Persistência concluída com sucesso. Dados salvos no banco de dados.
+2025-06-13 15:35:09,176 - INFO - Pipeline de Dados concluído com sucesso!
+2025-06-13 15:39:10,331 - INFO - Iniciando o Pipeline de Dados...
+2025-06-13 15:39:10,331 - INFO - --- EXECUTANDO CAMADA BRONZE (INGESTÃO) ---
+2025-06-13 15:39:10,331 - INFO - Caminho RAW_DIR que o script está usando: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/dados
+2025-06-13 15:39:10,331 - INFO - Caminho BRONZE_DIR que o script está usando: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/bronze
+2025-06-13 15:39:10,332 - INFO - Arquivo 'movies.csv' copiado para '/Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/bronze/movies.csv'
+2025-06-13 15:39:10,332 - INFO - Camada Bronze concluída com sucesso.
+2025-06-13 15:39:10,332 - INFO - --- EXECUTANDO CAMADA SILVER (LIMPEZA E TRANSFORMAÇÃO) ---
+2025-06-13 15:39:10,332 - INFO - Iniciando a Camada Silver: Limpeza e Transformação...
+2025-06-13 15:39:10,332 - INFO - Dados brutos lidos de: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/bronze/movies.csv
+2025-06-13 15:39:10,338 - INFO - DataFrame criado na camada Silver:
+2025-06-13 15:39:10,340 - INFO - Primeiras 5 linhas:
+   id                         filme   ano
+0   1               Dinosaur Planet  2003
+1   2    Isle of Man TT 2004 Review  2004
+2   3                     Character  1997
+3   4  Paula Abdul's Get Up & Dance  1994
+4   5      The Rise and Fall of ECW  2004
+2025-06-13 15:39:10,340 - INFO - Shape: (4499, 3)
+2025-06-13 15:39:10,341 - INFO - Tipos de dados:
+id        int64
+filme    object
+ano       int64
+2025-06-13 15:39:10,372 - INFO - Arquivo salvo com sucesso em: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/silver/movies_processed.parquet
+2025-06-13 15:39:10,372 - INFO - Registros salvos na camada Silver: 4499
+2025-06-13 15:39:10,372 - INFO - Camada Silver concluída.
+2025-06-13 15:39:10,372 - INFO - Camada Silver concluída com sucesso.
+2025-06-13 15:39:10,372 - INFO - --- EXECUTANDO CAMADA GOLD (MÉTRICAS E ENRIQUECIMENTO) ---
+2025-06-13 15:39:10,372 - INFO - Iniciando a Camada Gold: Métricas e Enriquecimento...
+2025-06-13 15:39:10,406 - INFO - Dados carregados da camada Silver: 4499 filmes.
+2025-06-13 15:39:10,407 - INFO - Período dos dados: 1915 - 2005
+2025-06-13 15:39:10,407 - INFO - Iniciando categorização dos filmes...
+2025-06-13 15:39:10,432 - INFO - Categorização concluída.
+2025-06-13 15:39:10,432 - INFO - Salvando DataFrames categorizados em: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/gold
+2025-06-13 15:39:10,438 - INFO - Arquivo salvo: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/gold/filme.parquet (3856 registros)
+2025-06-13 15:39:10,439 - INFO - Arquivo salvo: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/gold/documentário.parquet (164 registros)
+2025-06-13 15:39:10,441 - INFO - Arquivo salvo: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/gold/animação.parquet (185 registros)
+2025-06-13 15:39:10,442 - INFO - Arquivo salvo: /Users/gabrielle.adany/Desktop/DesafioEngenhariaDeDados/datalake/gold/sequel_série.parquet (294 registros)
+2025-06-13 15:39:10,442 - INFO - Camada Gold concluída.
+2025-06-13 15:39:10,442 - INFO - Camada Gold concluída com sucesso.
+2025-06-13 15:39:10,442 - INFO - --- EXECUTANDO CAMADA DE PERSISTÊNCIA (GOLD -> DB) ---
+2025-06-13 15:39:10,456 - INFO - Camada de Persistência concluída com sucesso. Dados salvos no banco de dados.
+2025-06-13 15:39:10,456 - INFO - Pipeline de Dados concluído com sucesso!
